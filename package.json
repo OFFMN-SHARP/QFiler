@@ -1,0 +1,44 @@
+{
+  "name": "qfiler",
+  "displayName": "QFiler",
+  "description": "File query language — search files by header, content, extension, etc.",
+  "version": "0.1.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "qfiler.search",
+        "title": "QFiler: 搜索文件"
+      },
+      {
+        "command": "qfiler.searchFromDir",
+        "title": "QFiler: 从此目录搜索"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "qfiler.searchFromDir",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
